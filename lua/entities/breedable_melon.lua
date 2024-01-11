@@ -27,6 +27,7 @@ function ENT:Initialize()
 	if CLIENT then return end
 	self:SetModel("models/props_junk/watermelon01.mdl")
 	self:SetMaterial("models/team_melon")
+	self:SetUseType(SIMPLE_USE)
 	self:RebuildPhysics()
 	local chance = math.random(3)
 	self:SetGenome((chance == 1 and 3) or (chance == 2 and 18) or (chance == 3 and 55))
@@ -53,10 +54,9 @@ function ENT:SpawnFunction(ply,tr,ClassName)
 	return ent
 end
 function ENT:Use(a)
-	if self:GetMelonOwner() == a or Melon_FFA:GetBool() then
-		if Melon_Heal:GetBool() then
-			a:SetHealth(a:Health()+Melon_HealthCodes[tonumber(Melon_Colors[self:GetGenome()+1])])
-		end
+	melon_breeding_dbgmsg(self:GetTGenome()..", "..self:GetGenome())
+	if Melon_Heal:GetBool() and (self:GetMelonOwner() == a or Melon_FFA:GetBool()) then
+		a:SetHealth(a:Health()+Melon_HealthCodes[tonumber(Melon_Colors[self:GetGenome()+1])])
 		self:Remove()
 	end
 end

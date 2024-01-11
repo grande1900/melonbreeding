@@ -12,7 +12,7 @@ Melon_ColorCodes = {
 	{r=255,g=16,b=16, a=255},
 	{r=255,g=128,b=192, a=255},
 	{r=255,g=128,b=16, a=255},
-	{r=16,g=16,b=16, a=255},
+	{r=64,g=64,b=64, a=255},
 	{r=16,g=128,b=255, a=255}}
 Melon_HealthCodes = {
 	2,
@@ -21,7 +21,7 @@ Melon_HealthCodes = {
 	5,
 	4,
 	3,
-	0,
+	-1,
 	20
 }
 function melon_breeding_dbgmsg(s)
